@@ -1,11 +1,8 @@
 import { useRef } from "react";
-import { useState } from "react";
 
 function App() {
-  const [open, setOpen] = useState(false);
-  const [fade, setFade] = useState("");
   const delayTimer = useRef(null);
-  const display = open ? "block" : "hidden";
+  const menuRef = useRef(null);
   return (
     <div className="flex justify-between">
       {[1, 2, 3].map((i) => {
@@ -16,26 +13,33 @@ function App() {
           className="text-3xl font-bold underline"
           onMouseEnter={() => {
             clearTimeout(delayTimer.current);
-            setOpen(true);
-            setFade("animate-fadeIn");
+            menuRef.current.style.opacity = 1;
+            menuRef.current.style.display = "block";
           }}
           onMouseLeave={() => {
-            setFade("animate-fadeOut");
-            delayTimer.current = setTimeout(() => setOpen(false), 200);
+            menuRef.current.style.opacity = 0;
+            delayTimer.current = setTimeout(
+              () => (menuRef.current.style.display = "hidden"),
+              200,
+            );
           }}
         >
           Hello
         </button>
         <menu
-          className={`absolute right-0 top-full w-max rounded-xl border p-3 shadow-menu ${display} ${fade}`}
+          ref={menuRef}
+          className={`absolute right-0 top-full hidden w-max rounded-xl border p-3 opacity-0 shadow-menu transition-opacity`}
           onMouseEnter={() => {
             clearTimeout(delayTimer.current);
-            setFade("animate-fadeIn");
-            setOpen(true);
+            menuRef.current.style.opacity = 1;
+            menuRef.current.style.display = "block";
           }}
           onMouseLeave={() => {
-            setFade("animate-fadeOut");
-            delayTimer.current = setTimeout(() => setOpen(false), 200);
+            menuRef.current.style.opacity = 0;
+            delayTimer.current = setTimeout(
+              () => (menuRef.current.style.display = "hidden"),
+              200,
+            );
           }}
         >
           <li className="px-3 text-center">Vite 3 Docs</li>
