@@ -19,8 +19,8 @@ function App() {
           onMouseLeave={() => {
             menuRef.current.style.opacity = 0;
             delayTimer.current = setTimeout(
-              () => (menuRef.current.style.display = "hidden"),
-              200,
+              () => (menuRef.current.style.display = "none"),
+              150,
             );
           }}
         >
@@ -37,8 +37,8 @@ function App() {
           onMouseLeave={() => {
             menuRef.current.style.opacity = 0;
             delayTimer.current = setTimeout(
-              () => (menuRef.current.style.display = "hidden"),
-              200,
+              () => (menuRef.current.style.display = "none"),
+              150,
             );
           }}
         >
