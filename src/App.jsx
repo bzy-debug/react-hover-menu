@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function App() {
   const [open, setOpen] = useState(false);
-  const animation = open ? "animate-fadeIn" : "animate-fadeOut";
+  const animation = open ? "opacity-100 visible" : "opacity-0 invisible";
   return (
     <div className="flex justify-between">
       {[1, 2, 3].map((i) => {
@@ -24,7 +24,7 @@ function App() {
           Hello
         </button>
         <menu
-          className={`invisible absolute right-0 top-full w-max rounded-xl border p-3 opacity-0 shadow-menu ${animation}`}
+          className={`absolute  right-0 top-full w-max rounded-xl border p-3 shadow-menu transition-all duration-1000 ${animation}`}
           onMouseEnter={() => {
             setOpen(true);
           }}
