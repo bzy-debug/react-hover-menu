@@ -24,7 +24,7 @@ function App() {
           Hello
         </button>
         <menu
-          className={`absolute  right-0 top-full w-max rounded-xl border p-3 shadow-menu transition-all duration-1000 ${animation}`}
+          className={`absolute  right-0 top-full w-max rounded-xl border p-3 shadow-menu transition-all ${animation}`}
           onMouseEnter={() => {
             setOpen(true);
           }}
