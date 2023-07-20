@@ -9,18 +9,18 @@ export default {
       keyframes: {
         fadeIn: {
           from: { opacity: 0 },
-          to: { opacity: 1 },
+          to: { opacity: 1, visibility: "visible" },
         },
         fadeOut: {
-          from: { opacity: 1 },
-          to: { opacity: 0 },
+          from: { opacity: 1, visibility: "visible" },
+          to: { opacity: 0, visibility: "hidden" },
         },
       },
       animation: {
-        fadeIn: "fadeIn 200ms ease",
-        fadeOut: "fadeOut 200ms ease",
+        fadeIn: "fadeIn 200ms ease forwards",
+        fadeOut: "fadeOut 200ms ease forwards",
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animation-delay")],
 };
